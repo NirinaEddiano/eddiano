@@ -24,3 +24,65 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+/* Ajoute ceci pour un défilement fluide */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: white;
+}
+
+/* Animation Flottement Rapide & Dynamique */
+@keyframes float-dynamic {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-15px) scale(1.05); } /* Monte et grossit un peu */
+}
+
+.animate-float-fast {
+  animation: float-dynamic 3s ease-in-out infinite;
+}
+
+.animate-float-medium {
+  animation: float-dynamic 4s ease-in-out infinite 0.5s; /* Petit décalage */
+}
+
+.animate-float-slow {
+  animation: float-dynamic 5s ease-in-out infinite 1s;
+}
+
+/* Curseur clignotant (Machine à écrire) */
+.cursor-blink {
+  border-right: 3px solid #3b82f6;
+  animation: blink 0.8s step-end infinite;
+}
+@keyframes blink { 50% { border-color: transparent } }
+
+
+/* Animation Carrousel Infini (Marquee) */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* On déplace de 50% car on double le contenu */
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+  display: flex;
+  width: max-content; /* Important pour que ça ne revienne pas à la ligne */
+}
+
+.animate-scroll:hover {
+  animation-play-state: running !important;
+}

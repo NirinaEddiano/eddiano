@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Eddiano.dev - Développeur Web Madagascar",
   description: "Développeur web professionnel à Madagascar - Création de sites internet sur mesure",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/Screenshot 2026-04-10 201109.png",
   },
 };
 

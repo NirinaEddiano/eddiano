@@ -46,8 +46,15 @@ export default function FaqSection() {
   };
 
   return (
-    <section id="faq" className="py-24 bg-gray-50">
-      <div className="container mx-auto px-6 max-w-4xl">
+    <motion.section
+      id="faq"
+      initial={{ opacity: 0, y: 32 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.75, ease: "easeOut" }}
+      className="py-16 md:py-24 bg-gray-50"
+    >
+      <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
         
         {/* --- EN-TÊTE --- */}
         <div className="text-center mb-16">
@@ -57,7 +64,7 @@ export default function FaqSection() {
           <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
             Questions Fréquentes
           </h3>
-          <p className="text-gray-600 text-lg font-light">
+          <p className="text-gray-600 text-base md:text-lg font-light">
             Tout ce que vous devez savoir avant de lancer votre projet digital.
           </p>
         </div>
@@ -77,9 +84,9 @@ export default function FaqSection() {
                 {/* QUESTION (Bouton Cliquable) */}
                 <button
                   onClick={() => toggleFaq(index)}
-                  className="w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none"
+                  className="w-full flex items-start justify-between gap-4 p-5 sm:p-6 md:p-8 text-left focus:outline-none"
                 >
-                  <span className={`text-lg font-bold transition-colors ${
+                  <span className={`pr-2 text-base md:text-lg font-bold transition-colors ${
                     isOpen ? "text-blue-600" : "text-gray-900"
                   }`}>
                     {faq.question}
@@ -118,7 +125,7 @@ export default function FaqSection() {
         {/* import { Plus, Minus, MessageCircle, Send } from "lucide-react"; */}
 
         {/* --- FOOTER FAQ (PARTIE À REMPLACER) --- */}
-        <div className="mt-16 bg-gray-900  rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+        <div className="mt-14 md:mt-16 bg-gray-900 rounded-3xl p-6 sm:p-8 md:p-12 text-center text-white relative overflow-hidden">
              
              {/* Déco fond */}
              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
@@ -133,7 +140,7 @@ export default function FaqSection() {
                     <MessageCircle size={32} />
                 </motion.div>
 
-                <h4 className="text-2xl font-bold mb-4">Vous avez une autre question ?</h4>
+                <h4 className="text-xl md:text-2xl font-bold mb-4">Vous avez une autre question ?</h4>
                 <p className="text-blue-100 mb-8 max-w-lg mx-auto">
                     Nous sommes là pour vous aider. Contactez-nous directement, nous répondons généralement en moins de 2 heures.
                 </p>
@@ -141,7 +148,7 @@ export default function FaqSection() {
                 {/* BOUTON AVEC ICONE */}
                 <Link 
                     href="/contact" 
-                    className="group inline-flex items-center gap-3 bg-white text-gray-900  px-8 py-4 rounded-xl font-bold hover:bg-gray-50 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1"
+                    className="group inline-flex w-full sm:w-auto items-center justify-center gap-3 bg-white text-gray-900 px-6 sm:px-8 py-4 rounded-xl font-bold hover:bg-gray-50 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1"
                 >
                     <span>Poser ma question</span>
                     <Send size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
@@ -149,6 +156,6 @@ export default function FaqSection() {
              </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

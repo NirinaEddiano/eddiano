@@ -86,3 +86,8 @@ body {
 .animate-scroll:hover {
   animation-play-state: running !important;
 }
+
+html, body {
+  overflow-x: hidden;
+}
+

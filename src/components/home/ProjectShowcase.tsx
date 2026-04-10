@@ -1,31 +1,25 @@
 "use client";
 
 import { useState, TouchEvent } from "react";
-import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, CheckCircle2 } from "lucide-react";
+import {
+  CheckCircle2,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  ChevronUp,
+} from "lucide-react";
+import { motion } from "framer-motion";
+import { homeShowcaseProjects } from "@/lib/portfolio";
 
 export default function ProjectShowcase() {
-  // --- TES PHOTOS LOCALES ---
-  const projects = [
-    {
-      id: 1,
-      desktopImg: "/assets/projects/p1-pc.jpg", 
-      mobileImg: "/assets/projects/p1-mobile.jpg",
-    },
-    {
-      id: 2,
-      desktopImg: "/assets/projects/p2-pc.jpg",
-      mobileImg: "/assets/projects/p2-mobile.jpg",
-    },
-    {
-      id: 3,
-      desktopImg: "/assets/projects/p3-pc.jpg",
-      mobileImg: "/assets/projects/p3-mobile.jpg",
-    }
-  ];
-
+  const projects = homeShowcaseProjects;
   const [activeIndex, setActiveIndex] = useState(0);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  if (projects.length === 0) {
+    return null;
+  }
 
   const nextSlide = () => {
     setActiveIndex((prev) => (prev + 1) % projects.length);
@@ -35,7 +29,6 @@ export default function ProjectShowcase() {
     setActiveIndex((prev) => (prev - 1 + projects.length) % projects.length);
   };
 
-  // --- LOGIQUE SWIPE (Uniquement horizontal pour mobile) ---
   const minSwipeDistance = 50;
 
   const onTouchStart = (e: TouchEvent) => {
@@ -49,6 +42,7 @@ export default function ProjectShowcase() {
 
   const onTouchEnd = () => {
     if (!touchStart || !touchEnd) return;
+
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
@@ -57,166 +51,153 @@ export default function ProjectShowcase() {
     if (isRightSwipe) prevSlide();
   };
 
-  // --- LOGIQUE D'AFFICHAGE (Horizontal Mobile / Vertical Desktop) ---
   const getSlideStyle = (index: number) => {
-    // 1. Si c'est la slide active
     if (index === activeIndex) {
       return "scale-100 opacity-100 z-20 translate-x-0 lg:translate-y-0";
     }
-    
+
     const prevIndex = (activeIndex - 1 + projects.length) % projects.length;
     const nextIndex = (activeIndex + 1) % projects.length;
 
-    // 2. Si c'est la slide précédente
     if (index === prevIndex) {
-      // Mobile: Gauche (-15%) | Desktop: Haut (-25% vertical, 0% horizontal)
-      return "scale-90 opacity-40 z-10 -translate-x-[15%] lg:translate-x-0 lg:-translate-y-[25%] blur-[2px]"; 
+      return "scale-90 opacity-40 z-10 -translate-x-[15%] lg:translate-x-0 lg:-translate-y-[25%] blur-[2px]";
     }
 
-    // 3. Si c'est la slide suivante
     if (index === nextIndex) {
-      // Mobile: Droite (15%) | Desktop: Bas (25% vertical, 0% horizontal)
-      return "scale-90 opacity-40 z-10 translate-x-[15%] lg:translate-x-0 lg:translate-y-[25%] blur-[2px]"; 
+      return "scale-90 opacity-40 z-10 translate-x-[15%] lg:translate-x-0 lg:translate-y-[25%] blur-[2px]";
     }
-    
-    // 4. Les autres (Cachées)
+
     return "scale-75 opacity-0 z-0 hidden";
   };
 
   return (
-    <section className="py-16 md:py-24 bg-gray-50 overflow-hidden"> 
-      {/* Conteneur principal : Grid sur Desktop */}
-      <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        
-        {/* --- COLONNE GAUCHE : TEXTE --- */}
-        <div className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left order-1"> 
-            <h2 className="text-blue-600 font-bold tracking-wider uppercase text-sm mb-3">
-                Notre Expertise
-            </h2>
-            <h3 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                Une approche hybride pour <br/>
-                <span className="text-blue-600">votre succès digital.</span>
-            </h3>
-            
-            <div className="text-gray-600 text-lg leading-relaxed space-y-4 font-light">
-                <p>
-                    Nous ne nous contentons pas de "faire des sites". Nous construisons des écosystèmes digitaux sur-mesure. 
-                    Que vous ayez besoin de la puissance brute du <strong className="text-gray-900 font-medium">Code (Next.js/React)</strong>, 
-                    de la flexibilité de <strong className="text-gray-900 font-medium">WordPress</strong>, 
-                    ou de la performance commerciale de <strong className="text-gray-900 font-medium">Shopify</strong>, nous maîtrisons chaque outil.
-                </p>
-                <p>
-                    Site Vitrine, E-commerce, E-learning ou application métier : nous choisissons la technologie 
-                    idéale pour votre croissance.
-                </p>
-            </div>
+    <motion.section
+      initial={{ opacity: 0, x: -36 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, amount: 0.25 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+      className="overflow-hidden bg-gray-50 py-14 md:py-24"
+    >
+      <div className="container mx-auto grid grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 md:gap-12">
+        <div className="order-1 mx-auto max-w-2xl text-center lg:mx-0 lg:text-left">
+          <h2 className="mb-3 text-sm font-bold uppercase tracking-wider text-blue-600">
+            Notre Expertise
+          </h2>
+          <h3 className="mb-6 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl md:text-5xl">
+            Une approche hybride pour <br />
+            <span className="text-blue-600">votre succes digital.</span>
+          </h3>
 
-            <div className="flex flex-wrap justify-center lg:justify-start gap-4 mt-8">
-                {["100% Responsive", "Optimisé SEO", "Admin Facile", "Design Unique"].map((tag) => (
-                    <span key={tag} className="flex items-center gap-2 px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-700 shadow-sm border border-gray-100">
-                        <CheckCircle2 size={16} className="text-green-500" />
-                        {tag}
-                    </span>
-                ))}
-            </div>
-        </div>
+          <div className="space-y-4 text-base font-light leading-relaxed text-gray-600 md:text-lg">
+            <p>
+              Nous construisons des experiences digitales sur mesure, en
+              choisissant la meilleure pile entre code sur mesure, WordPress et
+              Shopify selon le besoin du projet.
+            </p>
+            <p>
+              Cette section affiche maintenant de vraies paires desktop et
+              mobile, avec une logique identique a celle de tes captures.
+            </p>
+          </div>
 
-
-        {/* --- COLONNE DROITE : CARROUSEL --- */}
-        <div className="relative w-full h-[350px] md:h-[400px] lg:h-[600px] flex items-center justify-center order-2">
-            
-            {/* Zone tactile Mobile (Swipe Horizontal) */}
-            <div 
-                className="absolute inset-0 z-30 lg:hidden"
-                onTouchStart={onTouchStart}
-                onTouchMove={onTouchMove}
-                onTouchEnd={onTouchEnd}
-            ></div>
-
-            {/* --- NAVIGATION DESKTOP (Verticale : Haut / Bas) --- */}
-            {/* Bouton PREV (Haut) */}
-            <button 
-                onClick={prevSlide}
-                className="hidden lg:flex absolute top-0 left-1/2 -translate-x-1/2 z-40 bg-white p-3 rounded-full shadow-lg border border-gray-100 hover:bg-gray-50 hover:scale-110 transition-all text-gray-800"
-            >
-                <ChevronUp size={24} />
-            </button>
-            
-            {/* Bouton NEXT (Bas) */}
-            <button 
-                onClick={nextSlide}
-                className="hidden lg:flex absolute bottom-0 left-1/2 -translate-x-1/2 z-40 bg-white p-3 rounded-full shadow-lg border border-gray-100 hover:bg-gray-50 hover:scale-110 transition-all text-gray-800"
-            >
-                <ChevronDown size={24} />
-            </button>
-
-            {/* --- NAVIGATION MOBILE (Horizontale : Gauche / Droite) --- */}
-            <button 
-                onClick={prevSlide}
-                className="flex lg:hidden absolute left-0 z-40 bg-white/80 p-2 rounded-full shadow-sm hover:bg-white text-gray-800"
-            >
-                <ChevronLeft size={20} />
-            </button>
-            <button 
-                onClick={nextSlide}
-                className="flex lg:hidden absolute right-0 z-40 bg-white/80 p-2 rounded-full shadow-sm hover:bg-white text-gray-800"
-            >
-                <ChevronRight size={20} />
-            </button>
-
-
-            {/* --- LES SLIDES --- */}
-            {projects.map((project, index) => (
-                <div 
-                    key={project.id}
-                    className={`absolute transition-all duration-700 ease-in-out w-[85%] md:w-[70%] lg:w-[80%] cursor-pointer ${getSlideStyle(index)}`}
-                    onClick={() => setActiveIndex(index)}
+          <div className="mt-8 flex flex-wrap justify-center gap-4 lg:justify-start">
+            {["100% Responsive", "SEO optimise", "Admin simple", "Design unique"].map(
+              (tag) => (
+                <span
+                  key={tag}
+                  className="flex items-center gap-2 rounded-full border border-gray-100 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm"
                 >
-                    <div className="relative group">
-                        
-                        {/* 1. IMAGE PC */}
-                        <div className="rounded-xl overflow-hidden shadow-2xl border border-gray-200 bg-white">
-                            <div className="h-6 bg-gray-100 border-b flex items-center gap-1 px-3">
-                                <div className="w-2 h-2 rounded-full bg-red-400"></div>
-                                <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
-                                <div className="w-2 h-2 rounded-full bg-green-400"></div>
-                            </div>
-                            <img 
-                                src={project.desktopImg} 
-                                alt="Version PC" 
-                                className="w-full h-[220px] md:h-[300px] lg:h-[350px] object-cover object-top"
-                            />
-                        </div>
+                  <CheckCircle2 size={16} className="text-green-500" />
+                  {tag}
+                </span>
+              )
+            )}
+          </div>
+        </div>
 
-                        {/* 2. IMAGE MOBILE (Ajustée pour desktop vertical) */}
-                        <div className="absolute -bottom-5 -right-3 md:-bottom-8 md:-right-8 lg:-bottom-10 lg:-right-5 w-[25%] rounded-[15px] md:rounded-[20px] border-[3px] md:border-[4px] border-white shadow-2xl overflow-hidden bg-black z-20">
-                             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-3 bg-black rounded-b-md z-10"></div>
-                            <img 
-                                src={project.mobileImg} 
-                                alt="Version Mobile" 
-                                className="w-full h-auto object-cover"
-                            />
-                        </div>
+        <div className="relative order-2 flex h-[300px] w-full items-center justify-center sm:h-[350px] md:h-[400px] lg:h-[600px]">
+          <div
+            className="absolute inset-0 z-30 lg:hidden"
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+          />
 
-                    </div>
+          <button
+            onClick={prevSlide}
+            className="absolute left-1/2 top-0 z-40 hidden -translate-x-1/2 rounded-full border border-gray-100 bg-white p-3 text-gray-800 shadow-lg transition-all hover:scale-110 hover:bg-gray-50 lg:flex"
+          >
+            <ChevronUp size={24} />
+          </button>
+
+          <button
+            onClick={nextSlide}
+            className="absolute bottom-0 left-1/2 z-40 hidden -translate-x-1/2 rounded-full border border-gray-100 bg-white p-3 text-gray-800 shadow-lg transition-all hover:scale-110 hover:bg-gray-50 lg:flex"
+          >
+            <ChevronDown size={24} />
+          </button>
+
+          <button
+            onClick={prevSlide}
+            className="absolute left-2 z-40 flex rounded-full bg-white/90 p-2 text-gray-800 shadow-sm hover:bg-white lg:hidden"
+          >
+            <ChevronLeft size={20} />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-2 z-40 flex rounded-full bg-white/90 p-2 text-gray-800 shadow-sm hover:bg-white lg:hidden"
+          >
+            <ChevronRight size={20} />
+          </button>
+
+          {projects.map((project, index) => (
+            <div
+              key={project.id}
+              className={`absolute w-[82%] cursor-pointer transition-all duration-700 ease-in-out sm:w-[74%] md:w-[70%] lg:w-[80%] ${getSlideStyle(index)}`}
+              onClick={() => setActiveIndex(index)}
+            >
+              <div className="relative group">
+                <div className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-2xl">
+                  <div className="flex h-6 items-center gap-1 border-b bg-gray-100 px-3">
+                    <div className="h-2 w-2 rounded-full bg-red-400" />
+                    <div className="h-2 w-2 rounded-full bg-yellow-400" />
+                    <div className="h-2 w-2 rounded-full bg-green-400" />
+                  </div>
+                  <img
+                    src={project.desktopImage}
+                    alt={`${project.title} version PC`}
+                    className="h-[180px] w-full object-cover object-top sm:h-[220px] md:h-[300px] lg:h-[350px]"
+                  />
                 </div>
-            ))}
-        </div>
-        
-        {/* Pagination (Mobile seulement maintenant, car Desktop a les flèches haut/bas) */}
-        <div className="flex lg:hidden justify-center gap-2 mt-4 col-span-1 order-3">
-            {projects.map((_, idx) => (
-                <button
-                    key={idx}
-                    onClick={() => setActiveIndex(idx)}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                        idx === activeIndex ? "w-8 bg-blue-600" : "w-2 bg-gray-300 hover:bg-gray-400"
-                    }`}
-                />
-            ))}
+
+                <div className="absolute -bottom-4 right-0 z-20 w-[28%] overflow-hidden rounded-[15px] border-[3px] border-white bg-black shadow-2xl sm:-bottom-5 sm:-right-3 sm:w-[25%] md:-bottom-8 md:-right-8 md:rounded-[20px] md:border-[4px] lg:-bottom-10 lg:-right-5">
+                  <div className="absolute left-1/2 top-0 z-10 h-3 w-1/2 -translate-x-1/2 rounded-b-md bg-black" />
+                  <img
+                    src={project.mobileImage}
+                    alt={`${project.title} version mobile`}
+                    className="h-auto w-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          ))}
+
         </div>
 
+        <div className="order-3 col-span-1 mt-4 flex justify-center gap-2 lg:hidden">
+          {projects.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setActiveIndex(idx)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                idx === activeIndex
+                  ? "w-8 bg-blue-600"
+                  : "w-2 bg-gray-300 hover:bg-gray-400"
+              }`}
+            />
+          ))}
+        </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

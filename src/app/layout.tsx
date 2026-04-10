@@ -1,25 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Inter } from "next/font/google";
-import Footer from "@/components/layout/Footer"; 
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const inter = Inter({ subsets: ["latin"] });
-
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "eddiano.dev - Agence Web",
-  description: "Création de sites web Next.js, Shopify et WordPress.",
+  title: "Eddiano.dev - Développeur Web Madagascar",
+  description: "Développeur web professionnel à Madagascar - Création de sites internet sur mesure",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -29,14 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={inter.className}>
-        
-        {/* Le contenu de tes pages (page.tsx) s'affiche ici */}
+      <body>
+        <Header />
         {children}
-
-        {/* Le Footer s'affichera en bas de TOUTES les pages */}
         <Footer />
-        
       </body>
     </html>
   );

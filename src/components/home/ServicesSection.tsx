@@ -171,7 +171,7 @@ export default function ServicesSection() {
                                     </Link>
                                     
                                     <Link
-                                        href={`/services/${service.id}`}
+                                        href="/services"
                                         className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white text-gray-900 text-sm font-bold border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors"
                                     >
                                         <Globe size={18} />

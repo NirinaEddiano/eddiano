@@ -1,158 +1,241 @@
 "use client";
 
+import { useState, type FormEvent } from "react";
 import Link from "next/link";
-import { 
-  Github, 
-  Linkedin, 
-  Twitter, 
-  Instagram, 
-  ArrowRight, 
-  Mail, 
-  MapPin 
-} from "lucide-react";
+import { ArrowRight, Mail, MapPin } from "lucide-react";
 
 export default function Footer() {
-  
   const currentYear = new Date().getFullYear();
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitState, setSubmitState] = useState<{
+    message: string;
+    type: "error" | "success";
+  } | null>(null);
+
+  const handleNewsletterSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const value = email.trim();
+
+    if (!value) {
+      setSubmitState({
+        type: "error",
+        message: "Merci de renseigner votre email.",
+      });
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+      setSubmitState({
+        type: "error",
+        message: "Merci de saisir une adresse email valide.",
+      });
+      return;
+    }
+
+    try {
+      setIsSubmitting(true);
+      setSubmitState(null);
+
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: value }),
+      });
+
+      const data = (await response.json().catch(() => null)) as
+        | { error?: string }
+        | null;
+
+      if (!response.ok) {
+        throw new Error(
+          data?.error || "Impossible d'envoyer cet email pour le moment.",
+        );
+      }
+
+      setSubmitState({
+        type: "success",
+        message: "Votre email a bien ete envoye.",
+      });
+      setEmail("");
+    } catch (error) {
+      setSubmitState({
+        type: "error",
+        message:
+          error instanceof Error
+            ? error.message
+            : "Impossible d'envoyer cet email pour le moment.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
-    <footer className="bg-black text-white pt-20 pb-10 border-t border-white/10">
-      <div className="container mx-auto px-6">
-        
-        {/* --- PARTIE HAUTE (GRID 4 COLONNES) --- */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-            
-            {/* COLONNE 1 : MARQUE & INFO */}
-            <div className="space-y-6">
-                <Link href="/" className="text-2xl font-bold tracking-tighter flex items-center gap-1">
-                  <span className="text-white">Eddiano</span>
-                  <span className="text-blue-500">.dev</span>
-                </Link>
-                <p className="text-gray-400 text-sm leading-relaxed">
-                    Agence digitale spécialisée dans la création de sites web performants. 
-                    Nous transformons vos idées en expériences digitales uniques.
-                </p>
-                
-                {/* Réseaux Sociaux */}
-                <div className="flex gap-4">
-                    <a href="#" className="p-2 bg-white/5 rounded-full hover:bg-white/20 transition-colors text-gray-400 hover:text-white">
-                        <Linkedin size={18} />
-                    </a>
-                    <a href="#" className="p-2 bg-white/5 rounded-full hover:bg-white/20 transition-colors text-gray-400 hover:text-white">
-                        <Twitter size={18} />
-                    </a>
-                    <a href="#" className="p-2 bg-white/5 rounded-full hover:bg-white/20 transition-colors text-gray-400 hover:text-white">
-                        <Instagram size={18} />
-                    </a>
-                    <a href="#" className="p-2 bg-white/5 rounded-full hover:bg-white/20 transition-colors text-gray-400 hover:text-white">
-                        <Github size={18} />
-                    </a>
-                </div>
-            </div>
-
-            {/* COLONNE 2 : LIENS RAPIDES */}
-            <div>
-                <h4 className="text-lg font-bold mb-6">Agence</h4>
-                <ul className="space-y-4">
-                    <li>
-                        <Link href="/" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
-                            Accueil
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="#services" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
-                            Nos Services
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="#realisations" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
-                            Portfolio
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/contact" className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
-                            Contact
-                        </Link>
-                    </li>
-                </ul>
-            </div>
-
-            {/* COLONNE 3 : EXPERTISES (SEO) */}
-            <div>
-                <h4 className="text-lg font-bold mb-6">Expertises</h4>
-                <ul className="space-y-4">
-                    <li className="text-gray-400 text-sm flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
-                        Développement Next.js / React
-                    </li>
-                    <li className="text-gray-400 text-sm flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
-                        E-commerce Shopify
-                    </li>
-                    <li className="text-gray-400 text-sm flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span>
-                        Site Vitrine WordPress
-                    </li>
-                    <li className="text-gray-400 text-sm flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 bg-purple-500 rounded-full"></span>
-                        Dropshipping & SEO
-                    </li>
-                </ul>
-            </div>
-
-            {/* COLONNE 4 : NEWSLETTER & CONTACT */}
-            <div>
-                <h4 className="text-lg font-bold mb-6">Restons connectés</h4>
-                <p className="text-gray-400 text-sm mb-4">
-                    Recevez nos conseils pour digitaliser votre business.
-                </p>
-                
-                {/* Input Newsletter */}
-                <form className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-lg p-1 focus-within:border-blue-500 transition-colors mb-8">
-                    <input 
-                        type="email" 
-                        placeholder="Votre email" 
-                        className="bg-transparent border-none text-sm text-white px-3 py-2 w-full focus:outline-none placeholder:text-gray-600"
-                    />
-                    <button className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-md transition-colors">
-                        <ArrowRight size={18} />
-                    </button>
-                </form>
-
-                {/* Infos Contact Direct */}
-                <div className="space-y-3">
-                    <a href="mailto:contact@eddiano.dev" className="flex items-center gap-3 text-sm text-gray-400 hover:text-white transition-colors">
-                        <Mail size={16} className="text-blue-500" />
-                        contact@eddiano.dev
-                    </a>
-                    <div className="flex items-center gap-3 text-sm text-gray-400">
-                        <MapPin size={16} className="text-blue-500" />
-                        Disponible en Remote (Monde)
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        {/* --- PARTIE BASSE (COPYRIGHT) --- */}
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-gray-500 text-xs">
-                &copy; {currentYear} eddiano.dev - Tous droits réservés.
+    <footer className="border-t border-white/10 bg-black pb-10 pt-20 text-white">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="mb-16 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+          <div className="space-y-6">
+            <Link
+              href="/"
+              className="flex items-center gap-1 text-2xl font-bold tracking-tighter"
+            >
+              <span className="text-white">Eddiano</span>
+              <span className="text-blue-500">.dev</span>
+            </Link>
+            <p className="text-sm leading-relaxed text-gray-400">
+              Développeur web spécialisé dans la création de sites performants. 
+              Je transforme vos idées en expériences digitales uniques.
             </p>
-            
-            <div className="flex gap-6">
-                <Link href="/mentions-legales" className="text-gray-500 text-xs hover:text-white transition-colors">
-                    Mentions Légales
+          </div>
+
+          <div>
+            <h4 className="mb-6 text-lg font-bold">Navigation</h4>
+            <ul className="space-y-4">
+              <li>
+                <Link
+                  href="/"
+                  className="text-sm text-gray-400 transition-colors hover:text-blue-400"
+                >
+                  Accueil
                 </Link>
-                <Link href="/confidentialite" className="text-gray-500 text-xs hover:text-white transition-colors">
-                    Politique de Confidentialité
+              </li>
+              <li>
+                <Link
+                  href="/services"
+                  className="text-sm text-gray-400 transition-colors hover:text-blue-400"
+                >
+                  Nos Services
                 </Link>
-                <Link href="/cgv" className="text-gray-500 text-xs hover:text-white transition-colors">
-                    CGV
+              </li>
+              <li>
+                <Link
+                  href="/realisations"
+                  className="text-sm text-gray-400 transition-colors hover:text-blue-400"
+                >
+                  Portfolio
                 </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="text-sm text-gray-400 transition-colors hover:text-blue-400"
+                >
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="mb-6 text-lg font-bold">Expertises</h4>
+            <ul className="space-y-4">
+              <li className="flex items-center gap-2 text-sm text-gray-400">
+                <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
+                Developpement Next.js / React
+              </li>
+              <li className="flex items-center gap-2 text-sm text-gray-400">
+                <span className="h-1.5 w-1.5 rounded-full bg-green-500" />
+                E-commerce Shopify
+              </li>
+              <li className="flex items-center gap-2 text-sm text-gray-400">
+                <span className="h-1.5 w-1.5 rounded-full bg-indigo-500" />
+                Site Vitrine WordPress
+              </li>
+              <li className="flex items-center gap-2 text-sm text-gray-400">
+                <span className="h-1.5 w-1.5 rounded-full bg-purple-500" />
+                Dropshipping & SEO
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="mb-6 text-lg font-bold">Restons connectes</h4>
+            <p className="mb-4 text-sm text-gray-400">
+              Recevez nos conseils pour digitaliser votre business.
+            </p>
+
+            <form onSubmit={handleNewsletterSubmit} className="mb-8">
+              <div className="flex flex-col items-stretch gap-2 rounded-lg border border-white/10 bg-white/5 p-2 transition-colors focus-within:border-blue-500 sm:flex-row sm:items-center sm:p-1">
+                <input
+                  type="email"
+                  placeholder="Votre email"
+                  value={email}
+                  onChange={(event) => {
+                    setEmail(event.target.value);
+                    if (submitState) {
+                      setSubmitState(null);
+                    }
+                  }}
+                  required
+                  className="min-w-0 w-full border-none bg-transparent px-3 py-2 text-sm text-white placeholder:text-gray-600 focus:outline-none"
+                />
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="self-end rounded-md bg-blue-600 p-2 text-white transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60 sm:self-auto"
+                >
+                  <ArrowRight size={18} />
+                </button>
+              </div>
+              {submitState && (
+                <p
+                  className={`mt-3 text-xs ${
+                    submitState.type === "success"
+                      ? "text-green-400"
+                      : "text-red-400"
+                  }`}
+                >
+                  {submitState.message}
+                </p>
+              )}
+            </form>
+
+            <div className="space-y-3">
+              <a
+                href="mailto:anoeddi84@gmail.com"
+                className="flex items-center gap-3 text-sm text-gray-400 transition-colors hover:text-white"
+              >
+                <Mail size={16} className="text-blue-500" />
+                anoeddi84@gmail.com
+              </a>
+              <div className="flex items-center gap-3 text-sm text-gray-400">
+                <MapPin size={16} className="text-blue-500" />
+                Disponible en Remote (Monde)
+              </div>
             </div>
+          </div>
         </div>
 
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-center md:flex-row md:text-left">
+          <p className="text-xs text-gray-500">
+            &copy; {currentYear} eddiano.dev - Tous droits reserves.
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
+            <Link
+              href="/mentions-legales"
+              className="text-xs text-gray-500 transition-colors hover:text-white"
+            >
+              Mentions Legales
+            </Link>
+            <Link
+              href="/confidentialite"
+              className="text-xs text-gray-500 transition-colors hover:text-white"
+            >
+              Politique de Confidentialite
+            </Link>
+            <Link
+              href="/cgv"
+              className="text-xs text-gray-500 transition-colors hover:text-white"
+            >
+              CGV
+            </Link>
+          </div>
+        </div>
       </div>
     </footer>
   );

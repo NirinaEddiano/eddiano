@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 export default function TechCarousel() {
   const logos = [
     { name: "Next.js", src: "/assets/logos/nextjs.png" }, // Attention: assure-toi que ce logo est NOIR pour le fond blanc
@@ -13,7 +17,13 @@ export default function TechCarousel() {
   ];
 
   return (
-    <section className="bg-white py-10 overflow-hidden relative z-20 border-b border-gray-100">
+    <motion.section
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="bg-white py-10 overflow-hidden relative z-20 border-b border-gray-100"
+    >
       
       {/* Pas de titre ici, comme demandé */}
 
@@ -49,6 +59,6 @@ export default function TechCarousel() {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

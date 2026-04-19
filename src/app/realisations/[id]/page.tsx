@@ -1,6 +1,6 @@
 "use client";
 
-import { useParams } from "next/navigation";
+import { use } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowLeft,
@@ -13,9 +13,13 @@ import {
 import Link from "next/link";
 import { portfolioProjects } from "@/lib/portfolio";
 
-export default function DetailProjet() {
-  const params = useParams();
-  const id = Array.isArray(params.id) ? params.id[0] : params.id;
+export default function DetailProjet({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const resolvedParams = use(params);
+  const id = resolvedParams.id;
   const project = portfolioProjects.find((item) => item.id === id);
 
   if (!project) {
@@ -97,10 +101,7 @@ export default function DetailProjet() {
               </h2>
               <div className="space-y-5 text-base font-light leading-relaxed text-gray-600 md:space-y-6 md:text-lg">
                 <p>{project.context}</p>
-                <p className="font-normal text-gray-900">
-                  "Placeholder citation projet a personnaliser quand tu voudras
-                  mettre les vrais textes."
-                </p>
+                <p className="font-normal text-gray-900">"{project.quote}"</p>
               </div>
             </motion.div>
 
@@ -135,12 +136,7 @@ export default function DetailProjet() {
                 {project.challenge}
               </p>
               <div className="grid grid-cols-1 gap-4 pt-4 sm:grid-cols-2">
-                {[
-                  "Core Web Vitals",
-                  "Optimisation mobile",
-                  "Structure claire",
-                  "Responsive setup",
-                ].map((item) => (
+                {project.challengePoints.map((item) => (
                   <div
                     key={item}
                     className="flex items-center gap-2 text-sm font-bold text-gray-800"
@@ -158,7 +154,7 @@ export default function DetailProjet() {
               className="lg:w-1/2"
             >
               <img
-                src={project.mobileImg}
+                src={project.mobileImages}
                 className="h-[380px] w-full rounded-[3rem] border border-gray-100 object-cover shadow-2xl sm:h-[500px]"
                 alt={`${project.title} mobile`}
               />

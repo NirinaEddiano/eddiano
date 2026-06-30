@@ -800,7 +800,7 @@ export const portfolioProjects: PortfolioProject[] = Array.from(
       impact: `Placeholder impact du projet ${projectNumber}. A remplacer ensuite par les vrais resultats, objectifs ou benefices client.`,
     };
   }
-).filter(project => project.id !== 'projet-21' && project.id !== 'projet-27' && project.id !== 'projet-28' && project.id !== 'projet-29' && project.id !== 'projet-24');
+).filter(project => project.id !== 'safepet-jp' && project.id !== 'projet-02' && project.id !== 'projet-03' && project.id !== 'projet-04' && project.id !== 'projet-07' && project.id !== 'projet-08' && project.id !== 'projet-16' && project.id !== 'projet-19' && project.id !== 'projet-20' && project.id !== 'projet-21' && project.id !== 'projet-24' && project.id !== 'projet-27' && project.id !== 'projet-28' && project.id !== 'projet-29').map((project, index) => ({ ...project, order: index + 1 }));
 
 export const homePortfolioProjects = portfolioProjects.slice(0, 6);
 

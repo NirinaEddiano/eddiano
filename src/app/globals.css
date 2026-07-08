@@ -91,3 +91,35 @@ html, body {
   overflow-x: hidden;
 }
 
+/* Masque absolument tout ce qui est injecté par Google Translate */
+#google_translate_element,
+.goog-te-banner-frame,
+.goog-te-gadget,
+.goog-te-gadget-simple,
+.goog-te-gadget-icon,
+.goog-te-spinner-pos,
+.goog-te-balloon-frame,
+.goog-tooltip,
+.skiptranslate,
+iframe.skiptranslate,
+[id*="google_translate_element"],
+[class*="goog-te"],
+.VIpgJd-ZVi9od-ORHb-OEVmcd,
+.VIpgJd-ZVi9od-a9v213-aA210c-wL32e-J22L3e,
+.VIpgJd-ZVi9od-a9v213-aA210c,
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf-ti6hGc,
+[class*="VIpgJd-ZVi9od"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  width: 0 !important;
+}
+
+body {
+  top: 0px !important;
+  position: static !important;
+}
+

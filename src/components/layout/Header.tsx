@@ -2,12 +2,13 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation"; // Import pour détecter la page active
+import { usePathname } from "next/navigation";
 import { Menu, X, ArrowRight, Send } from "lucide-react";
 import { motion } from "framer-motion";
+import LanguageToggle from "@/components/layout/LanguageToggle";
 
 export default function Header() {
-  const pathname = usePathname(); // Récupère l'URL actuelle (ex: "/services")
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -17,7 +18,6 @@ export default function Header() {
   const legalPages = ['/mentions-legales', '/confidentialite', '/cgv'];
   const isLegalPage = legalPages.includes(pathname);
 
-  // --- CONFIGURATION DES LIENS ---
   const navLinks = [
     { name: "Accueil", href: "/" },
     { name: "Nos Services", href: "/services" },
@@ -58,7 +58,8 @@ export default function Header() {
   // Pour les pages légales, on force toujours le style sombre (texte blanc, fond noir)
   // Pour les autres pages, on garde le comportement original (transparent en haut, blanc quand scrollé)
   const isLegalPageForced = isLegalPage;
-  
+  const toggleVariant = isLegalPageForced || !isScrolled ? 'light' : 'dark'
+
   const navBgClass = isLegalPageForced
     ? "bg-black py-6"
     : isScrolled 
@@ -132,8 +133,9 @@ export default function Header() {
           })}
         </nav>
 
-        {/* BOUTON DEVIS */}
-        <div className="hidden md:block">
+        {/* LANGUE + BOUTON DEVIS */}
+        <div className="hidden md:flex items-center gap-4">
+          <LanguageToggle variant={toggleVariant} />
           <Link 
             href="/devis"
             className={`flex items-center gap-2 px-6 py-2.5 rounded-full border text-xs font-black uppercase tracking-widest transition-all duration-300 ${buttonClass} ${pathname === '/devis' ? 'ring-2 ring-blue-500' : ''}`}
@@ -143,19 +145,25 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* BOUTON MOBILE */}
-          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="md:hidden z-50 relative shrink-0">
-            {isMobileMenuOpen ? <X className="text-white" /> : <Menu className={mobileIconClass} />}
-          </button>
+        {/* LANGUE MOBILE + BOUTON BURGER */}
+          <div className="md:hidden flex items-center gap-2">
+            <LanguageToggle variant={toggleVariant} />
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="z-50 relative shrink-0">
+              {isMobileMenuOpen ? <X className="text-white" /> : <Menu className={mobileIconClass} />}
+            </button>
+          </div>
         </div>
       </header>
 
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-40 bg-black md:hidden">
           <div className="flex h-full flex-col items-stretch overflow-y-auto px-6 pb-8 pt-24">
-            <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.35em] text-white/40">
-              Navigation
-            </p>
+            <div className="mb-6 flex items-center justify-between">
+              <p className="text-[10px] font-bold uppercase tracking-[0.35em] text-white/40">
+                Navigation
+              </p>
+              <LanguageToggle variant="light" />
+            </div>
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <Link 

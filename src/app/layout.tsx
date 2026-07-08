@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { LangProvider } from "@/lib/i18n/LanguageContext";
+import GoogleTranslateInit from "@/components/layout/GoogleTranslateInit";
 
 export const metadata: Metadata = {
   title: "Eddiano.dev - Développeur Web Madagascar",
@@ -19,9 +21,12 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body>
-        <Header />
-        {children}
-        <Footer />
+        <GoogleTranslateInit />
+        <LangProvider>
+          <Header />
+          {children}
+          <Footer />
+        </LangProvider>
       </body>
     </html>
   );

@@ -170,7 +170,7 @@ export default function ProjectShowcase() {
                   />
                 </div>
 
-                <div className="absolute -bottom-4 right-0 z-20 w-[22%] overflow-hidden rounded-[15px] border-[3px] border-white bg-black shadow-2xl sm:-bottom-5 sm:-right-3 sm:w-[18%] md:-bottom-8 md:-right-8 md:w-[16%] md:rounded-[20px] md:border-[4px] lg:-bottom-10 lg:-right-5 lg:w-[14%]">
+                <div className="absolute -bottom-3 right-0 z-20 w-24 overflow-hidden rounded-[12px] border-[3px] border-white bg-black shadow-2xl sm:-bottom-4 sm:-right-2 sm:w-28 md:-bottom-6 md:-right-6 md:w-32 md:rounded-[16px] md:border-[4px] lg:-bottom-8 lg:-right-4 lg:w-36 xl:w-40">
                   <div className="absolute left-1/2 top-0 z-10 h-3 w-1/2 -translate-x-1/2 rounded-b-md bg-black" />
                   <div className="aspect-[9/19.5] w-full">
                     <img

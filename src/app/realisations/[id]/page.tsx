@@ -6,6 +6,7 @@ import {
   ArrowLeft,
   ArrowRight,
   CheckCircle2,
+  ExternalLink,
   Target,
   TrendingUp,
   Zap,
@@ -176,7 +177,15 @@ export default function DetailProjet({
             <p className="text-xl font-light italic leading-relaxed text-gray-600">
               {project.impact}
             </p>
-            <div className="pt-10">
+            <div className="flex flex-col items-center justify-center gap-4 pt-10 sm:flex-row sm:gap-6">
+              <a
+                href={project.linkView}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex w-full items-center justify-center gap-3 rounded-full border-2 border-gray-200 px-8 py-4 font-bold text-gray-900 transition-all hover:border-blue-600 hover:text-blue-600 sm:w-auto sm:px-10 sm:py-5"
+              >
+                Voir le site <ExternalLink size={18} />
+              </a>
               <Link
                 href="/contact"
                 className="inline-flex w-full items-center justify-center gap-4 rounded-full bg-gray-900 px-8 py-4 font-bold text-white shadow-xl transition-all hover:bg-blue-600 sm:w-auto sm:px-12 sm:py-5"

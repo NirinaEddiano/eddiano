@@ -113,9 +113,10 @@ export default function RealisationsPage() {
                       href={project.linkView}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center justify-center rounded-2xl border border-gray-200 px-4 text-gray-400 transition-all hover:border-blue-600 hover:text-blue-600"
+                      className="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl border border-gray-200 py-3.5 text-sm font-bold text-gray-900 transition-all hover:border-blue-600 hover:text-blue-600"
                     >
-                      <ExternalLink size={20} />
+                      Voir le site
+                      <ExternalLink size={16} />
                     </a>
                   </div>
                 </div>

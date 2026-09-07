@@ -79,7 +79,9 @@ export default function PricingSection() {
                 href="/tarifs"
                 className="group relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl md:p-8"
               >
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br text-white shadow-lg">
+                <div
+                  className={`mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${item.gradient} text-white shadow-lg`}
+                >
                   {item.icon}
                 </div>
                 <div

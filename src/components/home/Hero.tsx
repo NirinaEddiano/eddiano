@@ -117,34 +117,18 @@ export default function Hero() {
 
       <div className="container relative z-20 mt-0 flex flex-grow flex-col items-center justify-center px-5 pb-10 pt-24 text-center md:pb-0 md:pt-0 sm:px-6">
         <div className="mb-6 flex flex-wrap items-center justify-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2 shadow-2xl backdrop-blur-md">
-          <div className="flex -space-x-2">
-            <img
-              src="https://randomuser.me/api/portraits/women/44.jpg"
-              alt="User"
-              className="h-6 w-6 rounded-full border border-gray-800"
-            />
-            <img
-              src="https://randomuser.me/api/portraits/men/32.jpg"
-              alt="User"
-              className="h-6 w-6 rounded-full border border-gray-800"
-            />
-            <img
-              src="https://randomuser.me/api/portraits/men/86.jpg"
-              alt="User"
-              className="h-6 w-6 rounded-full border border-gray-800"
-            />
+          <div className="flex text-[10px] text-yellow-400">
+            {[1, 2, 3, 4, 5].map((i) => (
+              <Star key={i} size={10} fill="currentColor" />
+            ))}
           </div>
           <div className="flex flex-col items-start">
-            <div className="flex text-[10px] text-yellow-400">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <Star key={i} size={10} fill="currentColor" />
-              ))}
-            </div>
+            <p className="text-xs font-medium text-white/90">Agence web reconnue par nos clients</p>
           </div>
         </div>
 
         <h2 className="mb-6 animate-pulse text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">
-          Developpement web sur mesure
+          Agence de développement web
         </h2>
 
         <h1 className="mb-6 text-3xl font-extrabold leading-tight text-white sm:text-4xl md:mb-8 md:text-6xl lg:text-7xl">
@@ -155,8 +139,8 @@ export default function Hero() {
         </h1>
 
         <p className="mx-auto mb-8 max-w-lg text-sm font-light leading-relaxed text-gray-300 sm:text-base md:mb-10">
-          Transformez votre vision en realite digitale. Solutions performantes,
-          design moderne et conversion optimisee pour votre business.
+          Notre agence transforme votre vision en réalité digitale. Solutions performantes,
+          design moderne et conversion optimisée pour votre business.
         </p>
 
         <div className="mb-4 flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row">

@@ -92,7 +92,7 @@ export default function ServicesSection() {
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           >
             <p className="text-gray-600 text-sm md:text-lg max-w-2xl mx-auto leading-relaxed font-light">
-                Des solutions digitales élégantes et performantes. 
+                Notre agence conçoit des solutions digitales élégantes et performantes. 
                 Du <span className="text-blue-600 font-medium">Code pur</span> au <span className="text-green-600 font-medium">NoCode</span>, 
                 nous choisissons la meilleure arme pour votre croissance.
             </p>

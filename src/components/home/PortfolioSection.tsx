@@ -53,12 +53,11 @@ export default function PortfolioSection() {
               Portfolio
             </h2>
             <h3 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
-              6 apercus desktop sur la page d accueil.
+              Nos dernières réalisations web.
             </h3>
             <p className="text-base font-light text-gray-400 md:text-lg">
-              Cette section affiche uniquement les versions PC. Les paires
-              desktop/mobile sont reservees a la section expertise et a la page
-              realisations.
+              Des sites vitrines, des boutiques e-commerce et des plateformes sur mesure 
+              conçus pour nos clients. Découvrez un aperçu de notre travail.
             </p>
           </div>
 

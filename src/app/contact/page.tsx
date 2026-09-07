@@ -106,14 +106,14 @@ export default function ContactPage() {
               Parlons de votre futur projet
             </span>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter leading-none mb-6 md:mb-8">
-              Pret a passer <br />
+              Prêt à passer <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
-                au niveau superieur ?
+                au niveau supérieur ?
               </span>
             </h1>
             <p className="text-gray-300 text-lg md:text-xl font-light leading-relaxed max-w-2xl">
-              De l'idee au deploiement, nous sommes votre partenaire technique
-              pour creer des produits digitaux qui marquent les esprits.
+              De l'idée au déploiement, nous sommes votre partenaire technique
+              pour créer des produits digitaux qui marquent les esprits.
             </p>
           </motion.div>
         </div>
@@ -142,7 +142,22 @@ export default function ContactPage() {
                     <MessageSquare size={20} className="sm:w-6 sm:h-6" />
                   </div>
                   <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900">WhatsApp / Call</h3>
-                  <p className="text-sm sm:text-base md:text-lg text-gray-900 font-bold leading-snug">+261 33 43 348 46</p>
+                  <a
+                    href="https://wa.me/261334334846?text=Bonjour%20Niryva%2C%20j%27aimerais%20discuter%20d%27un%20projet%20web."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-sm sm:text-base md:text-lg text-green-600 font-bold leading-snug hover:underline"
+                  >
+                    +261 33 43 348 46
+                  </a>
+                  <a
+                    href="https://wa.me/261334334846?text=Bonjour%20Niryva%2C%20j%27aimerais%20discuter%20d%27un%20projet%20web."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-green-500 px-4 py-2 text-xs font-black uppercase tracking-widest text-white transition-colors hover:bg-green-600"
+                  >
+                    <MessageSquare size={14} /> Discuter sur WhatsApp
+                  </a>
                 </div>
               </div>
 

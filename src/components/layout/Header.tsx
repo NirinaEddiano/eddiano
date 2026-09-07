@@ -21,6 +21,7 @@ export default function Header() {
   const navLinks = [
     { name: "Accueil", href: "/" },
     { name: "Nos Services", href: "/services" },
+    { name: "Tarifs", href: "/tarifs" },
     { name: "Réalisations", href: "/realisations" },
     { name: "Contact", href: "/contact" },
   ];
@@ -98,8 +99,8 @@ export default function Header() {
         
         {/* LOGO */}
         <Link href="/" className="text-xl sm:text-2xl font-black tracking-tighter flex gap-0.5 z-50">
-          <span className={logoPrimaryClass}>Eddiano</span>
-          <span className={logoAccentClass}>.dev</span>
+          <span className={logoPrimaryClass}>Niryva</span>
+          <span className={logoAccentClass}></span>
         </Link>
 
         {/* MENU DESKTOP */}

@@ -20,6 +20,7 @@ const initialFormData = {
   name: "",
   projectName: "",
   serviceType: "",
+  projectDetail: "",
   description: "",
   email: "",
   phone: "",
@@ -130,8 +131,8 @@ export default function DevisPage() {
 
   const stepInfo = [
     {
-      title: "Identite",
-      desc: "Commencons par faire connaissance.",
+      title: "Identité",
+      desc: "Commençons par faire connaissance.",
       icon: <User className="text-blue-500" />,
     },
     {
@@ -141,12 +142,12 @@ export default function DevisPage() {
     },
     {
       title: "Vision",
-      desc: "Detaillez vos ambitions.",
+      desc: "Détaillez vos ambitions.",
       icon: <Briefcase className="text-blue-500" />,
     },
     {
       title: "Contact",
-      desc: "Ou vous envoyer le devis ?",
+      desc: "Où vous envoyer le devis ?",
       icon: <Send className="text-blue-500" />,
     },
   ];
@@ -165,10 +166,10 @@ export default function DevisPage() {
         <div className="container mx-auto px-4 sm:px-6 relative z-10 text-center">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-black mb-6 md:mb-8 tracking-tighter">
-              Configurons votre <span className="text-blue-400">succes.</span>
+              Configurons votre <span className="text-blue-400">succès.</span>
             </h1>
             <p className="text-gray-300 text-base md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
-              Repondez a quelques questions pour obtenir un chiffrage precis sous 24h.
+              Répondez à quelques questions pour obtenir un chiffrage précis sous 24h.
             </p>
           </motion.div>
         </div>
@@ -211,7 +212,7 @@ export default function DevisPage() {
                 >
                   {step === 1 && (
                     <div className="space-y-8 md:space-y-10">
-                      <h3 className="text-2xl font-bold text-gray-900">A qui avons-nous l'honneur ?</h3>
+                      <h3 className="text-2xl font-bold text-gray-900">À qui avons-nous l'honneur ?</h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                         <div className="space-y-3">
                           <label className="text-[10px] font-black uppercase tracking-widest text-gray-600 ml-2">
@@ -252,7 +253,7 @@ export default function DevisPage() {
 
                   {step === 2 && (
                     <div className="space-y-8 md:space-y-10">
-                      <h3 className="text-2xl font-bold text-gray-900">Quelle technologie preferez-vous ?</h3>
+                      <h3 className="text-2xl font-bold text-gray-900">Quelle technologie préférez-vous ?</h3>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {[
                           { label: "Next.js", icon: <Code2 /> },
@@ -263,7 +264,10 @@ export default function DevisPage() {
                           <button
                             type="button"
                             key={service.label}
-                            onClick={() => updateData("serviceType", service.label)}
+                            onClick={() => {
+                              updateData("serviceType", service.label);
+                              updateData("projectDetail", "");
+                            }}
                             className={`p-4 sm:p-6 rounded-2xl border-2 flex items-center gap-4 ${
                               formData.serviceType === service.label
                                 ? "border-blue-600 bg-blue-50"
@@ -283,12 +287,61 @@ export default function DevisPage() {
                           </button>
                         ))}
                       </div>
+
+                      {formData.serviceType && formData.serviceType !== "Aidez-moi" && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="space-y-3 pt-2"
+                        >
+                          <label className="text-[10px] font-black uppercase tracking-widest text-gray-600 ml-2">
+                            Type de projet (optionnel - pour affiner votre devis)
+                          </label>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            {formData.serviceType === "Shopify" ? (
+                              <>
+                                {["Site complet", "Site minimaliste (accueil + produit)"].map((detail) => (
+                                  <button
+                                    type="button"
+                                    key={detail}
+                                    onClick={() => updateData("projectDetail", detail)}
+                                    className={`rounded-2xl border-2 px-4 py-3 text-left text-sm font-bold ${
+                                      formData.projectDetail === detail
+                                        ? "border-blue-600 bg-blue-50 text-gray-900"
+                                        : "border-gray-200 text-gray-500 hover:border-blue-200"
+                                    }`}
+                                  >
+                                    {detail}
+                                  </button>
+                                ))}
+                              </>
+                            ) : (
+                              <>
+                                {["Site vitrine", "E-commerce", "Plateforme SaaS / web app"].map((detail) => (
+                                  <button
+                                    type="button"
+                                    key={detail}
+                                    onClick={() => updateData("projectDetail", detail)}
+                                    className={`rounded-2xl border-2 px-4 py-3 text-left text-sm font-bold ${
+                                      formData.projectDetail === detail
+                                        ? "border-blue-600 bg-blue-50 text-gray-900"
+                                        : "border-gray-200 text-gray-500 hover:border-blue-200"
+                                    }`}
+                                  >
+                                    {detail}
+                                  </button>
+                                ))}
+                              </>
+                            )}
+                          </div>
+                        </motion.div>
+                      )}
                     </div>
                   )}
 
                   {step === 3 && (
                     <div className="space-y-6">
-                      <h3 className="text-2xl font-bold text-gray-900">Decrivez votre besoin.</h3>
+                      <h3 className="text-2xl font-bold text-gray-900">Décrivez votre besoin.</h3>
                       <label className="text-[10px] font-black uppercase tracking-widest text-gray-600 ml-2">
                         Votre message (Requis)
                       </label>
@@ -299,7 +352,7 @@ export default function DevisPage() {
                           errors.description ? "border-red-500 ring-2 ring-red-100" : "border-gray-300"
                         } rounded-2xl resize-none outline-none`}
                         rows={5}
-                        placeholder="Expliquez-nous brievement..."
+                        placeholder="Expliquez-nous brièvement..."
                       />
                       {errors.description && (
                         <p className="text-red-500 text-[11px] font-bold flex items-center gap-1 ml-2">
@@ -311,7 +364,7 @@ export default function DevisPage() {
 
                   {step === 4 && (
                     <div className="space-y-8 md:space-y-10">
-                      <h3 className="text-2xl font-bold text-gray-900">Ou envoyer le devis ?</h3>
+                      <h3 className="text-2xl font-bold text-gray-900">Où envoyer le devis ?</h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                         <div className="space-y-3">
                           <label className="text-[10px] font-black uppercase tracking-widest text-gray-600 ml-2">
@@ -356,7 +409,7 @@ export default function DevisPage() {
                     step === 1 ? "opacity-0" : ""
                   }`}
                 >
-                  <ArrowLeft size={18} className="inline mr-2" /> Precedent
+                  <ArrowLeft size={18} className="inline mr-2" /> Précédent
                 </button>
                 <div className="flex flex-col items-stretch sm:items-end gap-3 w-full sm:w-auto">
                   {step < totalSteps ? (

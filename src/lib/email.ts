@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
 
-const GMAIL_USER = "anoeddi84@gmail.com";
-const GMAIL_APP_PASSWORD = "fifisnlwjtzsgoef";
+const GMAIL_USER = process.env.GMAIL_USER ?? "anoeddi84@gmail.com";
+const GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD ?? "xdei vklo crrk cqat";
 
 type SendEmailOptions = {
   html: string;
@@ -30,7 +30,7 @@ function getTransporter() {
 
 export async function sendEmail(options: SendEmailOptions) {
   await getTransporter().sendMail({
-    from: `"Eddiano.dev" <${GMAIL_USER}>`,
+    from: `"Niryva" <${GMAIL_USER}>`,
     to: GMAIL_USER,
     replyTo: options.replyTo,
     subject: options.subject,

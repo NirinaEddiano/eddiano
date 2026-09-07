@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Mentions Légales - Eddiano.dev",
-  description: "Informations légales sur Eddiano.dev, développeur web à Madagascar",
+  title: "Mentions Légales - Niryva",
+  description: "Informations légales de l'agence Niryva - Développement web",
 };
 
 export default function MentionsLegalesPage() {
@@ -15,11 +15,14 @@ export default function MentionsLegalesPage() {
           <section>
             <h2 className="text-xl font-bold text-gray-900 mb-4">Éditeur du site</h2>
             <p className="mb-2">
-              Le site <strong>eddiano.dev</strong> est édité par :
+              Le site <strong>niryva.com</strong> est édité par :
             </p>
             <ul className="list-disc pl-5 space-y-1">
-              <li><strong>Nom commercial :</strong> Eddiano.dev</li>
-              <li><strong>Siège social :</strong> Antananarivo, Madagascar</li>
+              <li><strong>Raison sociale :</strong> RAMIADANARIVO NIRINA EDDIANO</li>
+              <li><strong>Nom commercial :</strong> Niryva</li>
+              <li><strong>Numéro NIF :</strong> 3019709309</li>
+              <li><strong>Numéro STAT :</strong> 62011 12 2026 0 00807</li>
+              <li><strong>Siège social :</strong> LOT IV A 660 BIS A, Tsarafiraisana Ambano, Madagascar</li>
               <li><strong>Email :</strong> anoeddi84@gmail.com</li>
               <li><strong>Téléphone :</strong> +261 33 43 348 46</li>
             </ul>
@@ -41,7 +44,7 @@ export default function MentionsLegalesPage() {
             <h2 className="text-xl font-bold text-gray-900 mb-4">Propriété intellectuelle</h2>
             <p className="mb-2">
               L'ensemble du contenu du site (textes, images, logos, graphismes, code source) 
-              est la propriété exclusive de Eddiano.dev et est protégé par le code de la propriété intellectuelle.
+              est la propriété exclusive de Niryva et est protégé par le code de la propriété intellectuelle.
             </p>
             <p>
               Toute reproduction, représentation, modification ou diffusion, même partielle, 
@@ -52,12 +55,12 @@ export default function MentionsLegalesPage() {
           <section>
             <h2 className="text-xl font-bold text-gray-900 mb-4">Responsabilité</h2>
             <p className="mb-2">
-              Eddiano.dev s'efforce de fournir des informations aussi précises que possible. 
-              Toutefois, je ne peux garantir l'exactitude, la complétude ou l'actualité 
+              Niryva s'efforce de fournir des informations aussi précises que possible. 
+              Toutefois, l'éditeur ne peut garantir l'exactitude, la complétude ou l'actualité 
               des informations présentes sur le site.
             </p>
             <p>
-              Je décline toute responsabilité en cas d'erreurs, d'omissions 
+              L'éditeur décline toute responsabilité en cas d'erreurs, d'omissions 
               ou de problèmes techniques liés à l'utilisation du site.
             </p>
           </section>
@@ -66,7 +69,7 @@ export default function MentionsLegalesPage() {
             <h2 className="text-xl font-bold text-gray-900 mb-4">Liens hypertextes</h2>
             <p>
               Le site peut contenir des liens vers d'autres sites web. 
-              Eddiano.dev n'exerce aucun contrôle sur ces sites tiers 
+              Niryva n'exerce aucun contrôle sur ces sites tiers 
               et décline toute responsabilité quant à leur contenu.
             </p>
           </section>

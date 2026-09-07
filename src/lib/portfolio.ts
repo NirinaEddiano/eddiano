@@ -118,12 +118,12 @@ export const portfolioProjects: PortfolioProject[] = Array.from(
         mobileImages: `/assets/portfolio/Screenshot 2026-04-13 195138.png`,
         tags: ["E-commerce", "Soins Animaux", "Produits Intelligents"],
         context: `SafePet Japan est une marque leader dans les produits de soin intelligent pour animaux, offrant des litières automatiques pour chats, des sèche-cheveux intelligents et d'autres solutions innovantes pour les propriétaires d'animaux modernes.`,
-        quote: `Une boutique qui valorise des produits intelligents pour animaux avec une presentation claire, rassurante et orientee conversion.`,
+        quote: `Une boutique qui valorise des produits intelligents pour animaux avec une présentation claire, rassurante et orientée conversion.`,
         challengePoints: [
           "Parcours produit fluide",
           "Visuels lifestyle premium",
           "UX responsive",
-          "Reassurance e-commerce",
+          "Réassurance e-commerce",
         ],
         challenge: `Créer une expérience e-commerce moderne et conviviale qui met en valeur la sophistication technologique des produits tout en conservant une esthétique chaleureuse et adaptée aux animaux.`,
         impact: `Amélioration de la présence en ligne de SafePet Japan, meilleure expérience utilisateur pour les propriétaires d'animaux et augmentation des taux de conversion grâce à une présentation produit intuitive.`,
@@ -135,8 +135,8 @@ export const portfolioProjects: PortfolioProject[] = Array.from(
         id: `projet-02`,
         order: index + 1,
         title: `Ironiq UK`,
-        subtitle: `Boutique e-commerce pour machine a repasser automatique`,
-        description: `Site e-commerce centre sur Ironiq, une machine de repassage automatique mise en avant avec offres, bundles, FAQ, pages d'aide et argumentaires conversion.`,
+        subtitle: `Boutique e-commerce pour machine à repasser automatique`,
+        description: `Site e-commerce centré sur Ironiq, une machine de repassage automatique mise en avant avec offres, bundles, FAQ, pages d'aide et argumentaires conversion.`,
         image: `/assets/portfolio/Screenshot 2026-04-10 144145.png`,
         detailImg: `/assets/portfolio/Screenshot 2026-04-19 063912.png`,
         mobileImg: `/assets/portfolio/Screenshot 2026-04-10 144156.png`,
@@ -145,16 +145,16 @@ export const portfolioProjects: PortfolioProject[] = Array.from(
         mobileImage: `/assets/portfolio/Screenshot 2026-04-19 063854.png`,
         linkView: `https://air-ox-uk.myshopify.com/`,
         tags: ["Site Web", "E-commerce", "Produit Monoproduit"],
-        context: `Ironiq UK presente une boutique e-commerce focalisee sur un produit hero: l'Automatic Ironing Machine. Le site structure la vente autour d'une promesse simple, repasser plus vite avec une experience hands-free, tout en rassurant l'utilisateur avec pages FAQ, shipping, returns, suivi de commande et accessoires complementaires.`,
-        quote: `Le site insiste sur un message clair: gagner du temps, reduire l'effort quotidien et rendre le repassage plus simple avec un systeme automatique.`,
+        context: `Ironiq UK présente une boutique e-commerce focalisée sur un produit hero: l'Automatic Ironing Machine. Le site structure la vente autour d'une promesse simple, repasser plus vite avec une experience hands-free, tout en rassurant l'utilisateur avec pages FAQ, shipping, returns, suivi de commande et accessoires complementaires.`,
+        quote: `Le site insiste sur un message clair: gagner du temps, réduire l'effort quotidien et rendre le repassage plus simple avec un système automatique.`,
         challengePoints: [
           "Product page persuasive",
           "Bundles et cadeaux",
-          "FAQ et reassurance",
+          "FAQ et réassurance",
           "Parcours d'achat clair",
         ],
-        challenge: `Le travail produit repose sur une page de vente dense mais lisible: hero fort, prix promotionnel, packs multi-achats, preuves visuelles avant/apres, explication du fonctionnement en 4 etapes et fiches d'information utiles comme la livraison et les retours. Le tout doit rester fluide sur desktop comme sur mobile.`,
-        impact: `Le site donne une lecture immediate de l'offre Ironiq: benefices du produit, compatibilite avec plusieurs types de vetements, fonctionnement en quelques minutes, argumentaire de confort d'usage et environnement e-commerce complet pour soutenir la conversion autour du produit principal et de ses accessoires.`,
+        challenge: `Le travail produit repose sur une page de vente dense mais lisible: hero fort, prix promotionnel, packs multi-achats, preuves visuelles avant/après, explication du fonctionnement en 4 étapes et fiches d'information utiles comme la livraison et les retours. Le tout doit rester fluide sur desktop comme sur mobile.`,
+        impact: `Le site donne une lecture immédiate de l'offre Ironiq: bénéfices du produit, compatibilité avec plusieurs types de vêtements, fonctionnement en quelques minutes, argumentaire de confort d'usage et environnement e-commerce complet pour soutenir la conversion autour du produit principal et de ses accessoires.`,
       };
     }
 
@@ -242,31 +242,31 @@ export const portfolioProjects: PortfolioProject[] = Array.from(
       };
     }
 
-    if (index === 5) {
+if (index === 5) {
       return {
-        id: `projet-06`,
+        id: `sorevia`,
         order: index + 1,
-        title: `Numa`,
-        subtitle: `Le masseur cervical 3-en-1 pour soulager les douleurs`,
-        description: `Boutique e-commerce spécialisée dans le bien-être, proposant le CerviCalm®, un appareil thérapeutique avec une offre d'essai de 365 jours.`,
-        image: desktopImage,
-        detailImg: `/assets/portfolio/Screenshot 2026-04-19 080109.png`,
-        mobileImg: mobileImage,
-        mobileImages: `/assets/portfolio/Screenshot 2026-04-19 080136.png`,
-        desktopImage: `/assets/portfolio/Screenshot 2026-04-19 080109.png`,
-        mobileImage: mobileImage,
-        linkView: `https://numaa-shop.com/`,
-        tags: ["Site Web", "Bien-être", "E-commerce"],
-        context: `Numa est une marque centrée sur le soulagement des douleurs cervicales avec son produit phare : CerviCalm. Le site est pensé pour convaincre une audience souffrant de douleurs chroniques, en s'appuyant sur des arguments thérapeutiques (chaleur, vibrations, traction) et une garantie d'essai d'un an totalement sans risque.`,
-        quote: `Votre kiné à domicile. Soulagez vos douleurs naturellement en seulement 15 minutes par jour.`,
+        title: `SOREVIA™ Air One`,
+        subtitle: `Écouteurs sans fil avec réduction de bruit active`,
+        description: `Page de vente dédiée aux écouteurs SOREVIA™ Air One : autonomie 30 heures, réduction de bruit active hybride et Bluetooth 5.3, spécialement optimisée pour le marché japonais.`,
+        image: `/sorevia/Screenshot 2026-09-07 113934.png`,
+        detailImg: `/sorevia/Screenshot 2026-09-07 114104.png`,
+        mobileImg: `/sorevia/Screenshot 2026-09-07 114011.png`,
+        mobileImages: `/sorevia/Screenshot 2026-09-07 114158.png`,
+        desktopImage: `/sorevia/Screenshot 2026-09-07 113934.png`,
+        mobileImage: `/sorevia/Screenshot 2026-09-07 114011.png`,
+        linkView: `https://claiver-jp.com/products/sorevia%E2%84%A2-air-one`,
+        tags: ["Site Web", "High-Tech", "E-commerce"],
+        context: `SOREVIA™ Air One est un produit audio haut de gamme vendu par Claiver™ : des écouteurs sans fil dotés de transducteurs de précision, d'une réduction de bruit active (ANC) hybride, de 30 heures d'autonomie grâce à son boîtier de charge sans fil, d'un confort de port exceptionnel et d'une connexion instantanée en Bluetooth 5.3. Le site, en japonais, capitalise sur une offre de lancement à -93% et une livraison express offerte dans le monde entier.`,
+        quote: `Un son immersif, un confort toute la journée et une autonomie de 30 heures : la performance audio studio, sans fil et sans compromis.`,
         challengePoints: [
-          "Mise en avant des 3 technologies",
-          "Offre irrésistible (Essai 365 jours)",
-          "Preuve sociale et rassurance",
-          "Upsells stratégiques (Guides)"
+          "Promotion d'offre de lancement percutante",
+          "Mise en avant des 3 piliers (Son, Confort, Autonomie)",
+          "FAQ anti-objections (compatibilité, batterie, contenu du pack)",
+          "Rassurance totale (30 jours, garantie 2 ans, livraison mondiale)"
         ],
-        challenge: `Bâtir une confiance absolue pour un produit de santé/bien-être, en structurant la page produit autour des douleurs réelles des utilisateurs et en offrant une garantie de remboursement sans condition pour lever tout frein à l'achat.`,
-        impact: `Mise en ligne d'un tunnel de vente à haute conversion grâce à une offre claire (-50% + bonus), un copywriting percutant ciblant la douleur, et une expérience utilisateur fluide.`,
+        challenge: `Créer une page produit à très forte conversion pour un marché japonais exigeant, en traduisant la qualité technique du produit (ANC hybride, Bluetooth 5.3, boîtier magnétique) en bénéfices simples et rassurants, et en gommant toutes les frictions d'achat grâce aux garanties et à une livraison express offerte.`,
+        impact: `Une page de vente efficace qui transforme l'innovation audio en un achat irrésistible : offre de lancement agressive, réassurances fortes (remboursement 30 jours, garantie constructeur 2 ans) et parcours d'achat fluide optimisé pour la conversion.`,
       };
     }
 
@@ -720,29 +720,29 @@ export const portfolioProjects: PortfolioProject[] = Array.from(
 
     if (index === 24) {
       return {
-        id: `projet-25`,
+        id: `espace-revetements`,
         order: index + 1,
-        title: `Cleenovia`,
-        subtitle: `VitaMixia - Macchina Multifunzione 8-in-1`,
-        description: `Boutique e-commerce italienne pour Cleenovia, proposant VitaMixia, une machine multifonction 8-en-1 pour réaliser des laits végétaux frais, soupes et smoothies.`,
-        image: `/assets/portfolio/Screenshot 2026-04-10 153058.png`,
-        detailImg: `/assets/portfolio/Screenshot 2026-04-19 121857.png`,
-        mobileImg: `/assets/portfolio/Screenshot 2026-04-10 153110.png`,
-        mobileImages: `/assets/portfolio/Screenshot 2026-04-19 121857.png`,
-        desktopImage: `/assets/portfolio/Screenshot 2026-04-19 121843.png`,
-        mobileImage: `/assets/portfolio/Screenshot 2026-04-19 121857.png`,
-        linkView: `https://cleenovia.com`,
-        tags: ["Site Web", "Cuisine & Santé", "E-commerce"],
-        context: `Cleenovia s'adresse aux familles italiennes cherchant à manger mieux et plus sainement. Le produit phare, VitaMixia, est une machine 8-en-1 qui remplace plusieurs appareils de cuisine. Elle permet de préparer du lait végétal 100% naturel sans conservateurs, des soupes et des smoothies en seulement 20 minutes, avec une fonction d'auto-nettoyage.`,
-        quote: `Latte vegetale fresco al 100% naturale. Una sola macchina con otto funzioni che sostituisce l'estrattore, il blender, lo scaldabiberon e il bollitore.`,
+        title: `Espace Revêtements`,
+        subtitle: `Revendeur sols & murs à La Réunion`,
+        description: `Site vitrine et catalogue en ligne pour Espace Revêtements : LVT, carrelage, stratifié, faïence, panneaux muraux, colle & enduit, avec livraison sur toute l'île et service de pose.`,
+        image: `/espacerevetements/Screenshot 2026-09-07 114303.png`,
+        detailImg: `/espacerevetements/Screenshot 2026-09-07 114500.png`,
+        mobileImg: `/espacerevetements/Screenshot 2026-09-07 114414.png`,
+        mobileImages: `/espacerevetements/Screenshot 2026-09-07 114606.png`,
+        desktopImage: `/espacerevetements/Screenshot 2026-09-07 114303.png`,
+        mobileImage: `/espacerevetements/Screenshot 2026-09-07 114414.png`,
+        linkView: `https://www.espacerevetements-reunion.fr/`,
+        tags: ["Site Web", "Bricolage & Décoration", "Catalogue en ligne"],
+        context: `Espace Revêtements est une entreprise familiale réunionnaise forte de 35 ans d'expérience, spécialisée dans les revêtements de sol et de mur. Le site présente une gamme complète : sols (LVT, carrelage, sol souple, sol naturel, moquette, sol stratifié, sous-couche, accessoires et plinthes), murs (carrelage, faïence, panneaux muraux) et colle & enduit, avec son showroom à Saint-Pierre, un simulateur de visualisation et les promotions en cours.`,
+        quote: `Entreprise familiale depuis 35 ans à La Réunion. Retrouvez tous nos revêtements de sols et murs, avec livraison sur toute l'île et pose par nos équipes.`,
         challengePoints: [
-          "Mise en avant des 8 fonctions en 1",
-          "Bénéfices santé (100% naturel, zéro conservateur)",
-          "Preuve sociale et ciblage des familles italiennes",
-          "Fonction d'auto-nettoyage en 60 secondes"
+          "Catalogue clair par famille (Sol, Mur, Colle & Enduit)",
+          "Mise en avant de l'expérience locale (35 ans, showroom)",
+          "Simulateur pour visualiser les sols chez soi",
+          "Promotions et livraison sur toute l'île"
         ],
-        challenge: `Créer une page de vente convaincante pour le marché italien, en expliquant comment cette machine multifonction simplifie le quotidien et permet de réaliser des économies tout en mangeant plus sainement.`,
-        impact: `Une boutique en ligne claire et performante qui met en valeur l'aspect pratique et sain du produit, avec une garantie de remboursement de 90 jours pour maximiser la confiance.`,
+        challenge: `Organiser une très large gamme de produits techniques en un catalogue en ligne simple à parcourir, tout en rassurant les particuliers et professionnels réunionnais sur l'ancrage local, la livraison sur toute l'île et la qualité du service de pose.`,
+        impact: `Un site vitrine-catalogue structuré et accessible qui transforme une expertise familiale de 35 ans en une expérience en ligne claire : navigation par famille de produits, promotions visibles et parcours de contact renforcé.`,
       };
     }
 
@@ -774,6 +774,62 @@ export const portfolioProjects: PortfolioProject[] = Array.from(
       };
     }
 
+    if (index === 26) {
+      return {
+        id: `la-cave-pitey`,
+        order: index + 1,
+        title: `La Cave Pitey`,
+        subtitle: `Caviste haut de gamme à La Réunion`,
+        description: `Site vitrine et e-commerce pour La Cave Pitey : sélection de vins d'exception, commentaires de dégustation, guides & conseils (cépages, accords mets & vins), livraison et points relais sur l'île.`,
+        image: `/lacavepitey/Screenshot 2026-09-07 114817.png`,
+        detailImg: `/lacavepitey/Screenshot 2026-09-07 114936.png`,
+        mobileImg: `/lacavepitey/Screenshot 2026-09-07 114854.png`,
+        mobileImages: `/lacavepitey/Screenshot 2026-09-07 115032.png`,
+        desktopImage: `/lacavepitey/Screenshot 2026-09-07 114817.png`,
+        mobileImage: `/lacavepitey/Screenshot 2026-09-07 114854.png`,
+        linkView: `https://lacavepitey.com/`,
+        tags: ["Site Web", "Vins & Spiritueux", "E-commerce"],
+        context: `La Cave Pitey est une cave à vins haut de gamme de La Réunion : boutique, packs, domaines et grandes régions viticoles, avec des commentaires de dégustation d'exception. Le site guide le client à travers des contenus experts (guide des cépages, accords mets & vins, régions viticoles, domaines & producteurs, le vin pour chaque occasion) et propose la livraison à domicile et en points relais sur toute l'île.`,
+        quote: `Vins d'exception livrés à La Réunion. Une sélection prestigieuse de grands domaines, conservée dans des conditions optimales.`,
+        challengePoints: [
+          "Catalogue organisé (régions, domaines, packs, occasions)",
+          "Contenus experts (cépages, accords, atmosphères de dégustation)",
+          "Coffrets et packs pour cadeaux",
+          "Logistique locale (livraison, retrait, points relais)"
+        ],
+        challenge: `Donner envie et rassurer une clientèle d'amateurs de vin sur une île, en vulgarisant le vocabulaire de la dégustation tout en offrant une boutique en ligne élégante avec une logistique locale fiable (points relais à Saint-Leu et Saint-Louis notamment).`,
+        impact: `Un site premium et convivial qui positionne La Cave Pitey comme la référence vins à La Réunion : navigation par occasion ou par région, guides pédagogiques et parcours d'achat serein complètent l'expérience en boutique.`,
+      };
+    }
+
+    if (index === 27) {
+      return {
+        id: `teloo-eats`,
+        order: index + 1,
+        title: `Teloo Eats`,
+        subtitle: `Livraison à Madagascar`,
+        description: `Plateforme de livraison à Madagascar : commande simple, suivi en temps réel et réseau de livreurs pour apporter repas, courses et produits au plus près de chez vous à Antananarivo.`,
+        image: `/telooeats/Screenshot 2026-09-07 115204.png`,
+        detailImg: `/telooeats/Screenshot 2026-09-07 115328.png`,
+        mobileImg: `/telooeats/Screenshot 2026-09-07 115254.png`,
+        mobileImages: `/telooeats/Screenshot 2026-09-07 115416.png`,
+        desktopImage: `/telooeats/Screenshot 2026-09-07 115204.png`,
+        mobileImage: `/telooeats/Screenshot 2026-09-07 115254.png`,
+        linkView: `https://www.telooeats.com/`,
+        tags: ["Site Web", "Restaurant & Livraison", "Plateforme"],
+        context: `Teloo Eats est un service de livraison pensé pour Madagascar : une plateforme web claire et rapide qui connecte les clients aux livres et partenaires locaux pour la livraison de repas et de courses. L'expérience a été conçue pour être immédiate depuis un mobile malgré les contraintes de connexion, avec un parcours de commande minimaliste et des étapes bien visibles.`,
+        quote: `Teloo – Livraison à Madagascar. Des repas et des courses livrés rapidement, au plus près de votre quartier.`,
+        challengePoints: [
+          "Parcours de commande simple et rapide",
+          "Expérience pensée pour le mobile",
+          "Clarté des étapes de livraison",
+          "Image et rythme visuels rassurants"
+        ],
+        challenge: `Créer une plateforme de livraison rassurante et immédiate dans le contexte malgache : interface épurée, temps de chargement maîtrisé et identification claire du service de livraison pour fidéliser utilisateurs et partenaires.`,
+        impact: `Une plateforme accessible et moderne qui démocratise la livraison à Madagascar en mettant l'accent sur la simplicité d'utilisation, la rapidité et la fiabilité du service.`,
+      };
+    }
+
     return {
       id: `projet-${projectNumber}`,
       order: index + 1,
@@ -797,7 +853,7 @@ export const portfolioProjects: PortfolioProject[] = Array.from(
         "Responsive setup",
       ],
       challenge: `Le challenge temporaire du projet ${projectNumber} consiste a poser une structure claire, premium et responsive que tu pourras ajuster contenu par contenu.`,
-      impact: `Placeholder impact du projet ${projectNumber}. A remplacer ensuite par les vrais resultats, objectifs ou benefices client.`,
+      impact: `Placeholder impact du projet ${projectNumber}. A remplacer ensuite par les vrais resultats, objectifs ou bénéfices client.`,
     };
   }
 ).filter(project => project.id !== 'safepet-jp' && project.id !== 'projet-02' && project.id !== 'projet-03' && project.id !== 'projet-04' && project.id !== 'projet-07' && project.id !== 'projet-08' && project.id !== 'projet-16' && project.id !== 'projet-19' && project.id !== 'projet-20' && project.id !== 'projet-21' && project.id !== 'projet-24' && project.id !== 'projet-27' && project.id !== 'projet-28' && project.id !== 'projet-29').map((project, index) => ({ ...project, order: index + 1 }));
@@ -805,3 +861,7 @@ export const portfolioProjects: PortfolioProject[] = Array.from(
 export const homePortfolioProjects = portfolioProjects.slice(0, 6);
 
 export const homeShowcaseProjects = portfolioProjects.slice(6);
+
+
+
+

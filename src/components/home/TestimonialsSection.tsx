@@ -31,11 +31,10 @@ export default function TestimonialsSection() {
             Avis Clients
           </span>
           <h2 className="mt-5 text-3xl font-black tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
-            Des retours reels, captures a l appui.
+            Ils nous font confiance.
           </h2>
           <p className="mt-4 text-base font-light leading-relaxed text-gray-500 md:text-lg">
-            Une section avis adaptee a de vraies captures de conversation, sans
-            noms clients affiches.
+            Les retours réels de nos clients, preuves à l'appui.
           </p>
         </motion.div>
 
@@ -50,7 +49,7 @@ export default function TestimonialsSection() {
             <div className="relative overflow-hidden rounded-[2rem] border border-gray-200 bg-gray-950 p-2 shadow-[0_30px_80px_rgba(15,23,42,0.18)]">
               <div className="mb-2 flex items-center gap-2 rounded-[1.2rem] bg-gray-900 px-4 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-white/70">
                 <ShieldCheck size={16} className="text-emerald-400" />
-                Capture client anonymisee
+                Témoignage client anonymisé
               </div>
 
               <div className="relative aspect-[16/9] overflow-hidden rounded-[1.4rem] bg-black">
@@ -101,7 +100,7 @@ export default function TestimonialsSection() {
                       {reviews[activeIndex].author}
                     </h4>
                     <p className="text-sm text-gray-500">
-                      Retour base sur une capture de conversation reelle
+                      Retour basé sur une conversation réelle
                     </p>
                   </div>
                 </div>

@@ -12,12 +12,14 @@ export async function POST(request: Request) {
       name?: string;
       phone?: string;
       projectName?: string;
+      projectDetail?: string;
       serviceType?: string;
     };
 
     const name = body.name?.trim() || "";
     const projectName = body.projectName?.trim() || "";
     const serviceType = body.serviceType?.trim() || "A definir";
+    const projectDetail = body.projectDetail?.trim() || "";
     const description = body.description?.trim() || "";
     const email = body.email?.trim() || "";
     const phone = body.phone?.trim() || "";
@@ -42,6 +44,7 @@ export async function POST(request: Request) {
       `Nom: ${name}`,
       `Projet: ${projectName || "Non renseigne"}`,
       `Service: ${serviceType}`,
+      `Type de projet: ${projectDetail || "Non precise"}`,
       `Email: ${email}`,
       `Telephone: ${phone || "Non renseigne"}`,
       "",
@@ -55,6 +58,7 @@ export async function POST(request: Request) {
         <p><strong>Nom:</strong> ${escapeHtml(name)}</p>
         <p><strong>Projet:</strong> ${escapeHtml(projectName || "Non renseigne")}</p>
         <p><strong>Service:</strong> ${escapeHtml(serviceType)}</p>
+        <p><strong>Type de projet:</strong> ${escapeHtml(projectDetail || "Non precise")}</p>
         <p><strong>Email:</strong> ${escapeHtml(email)}</p>
         <p><strong>Telephone:</strong> ${escapeHtml(phone || "Non renseigne")}</p>
         <p><strong>Description:</strong></p>

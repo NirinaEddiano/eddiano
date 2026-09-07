@@ -2,7 +2,12 @@
 
 import { useState, type FormEvent } from "react";
 import Link from "next/link";
-import { ArrowRight, Mail, MapPin } from "lucide-react";
+import { ArrowRight, Mail, MapPin, MessageCircle } from "lucide-react";
+
+const WHATSAPP_NUMBER = "+261 33 43 348 46";
+const WHATSAPP_LINK = `https://wa.me/261334334846?text=${encodeURIComponent(
+  "Bonjour Niryva, j'aimerais discuter d'un projet web.",
+)}`;
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -83,12 +88,11 @@ export default function Footer() {
               href="/"
               className="flex items-center gap-1 text-2xl font-bold tracking-tighter"
             >
-              <span className="text-white">Eddiano</span>
-              <span className="text-blue-500">.dev</span>
+              <span className="text-white">Niryva</span>
             </Link>
             <p className="text-sm leading-relaxed text-gray-400">
-              Développeur web spécialisé dans la création de sites performants. 
-              Je transforme vos idées en expériences digitales uniques.
+              Notre équipe combine expertise technique et créativité pour concevoir 
+              des solutions digitales performantes. WordPress, Shopify et code sur mesure.
             </p>
           </div>
 
@@ -121,6 +125,14 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/tarifs"
+                  className="text-sm text-gray-400 transition-colors hover:text-blue-400"
+                >
+                  Tarifs
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/contact"
                   className="text-sm text-gray-400 transition-colors hover:text-blue-400"
                 >
@@ -135,7 +147,7 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-center gap-2 text-sm text-gray-400">
                 <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
-                Developpement Next.js / React
+                Développement Next.js / React
               </li>
               <li className="flex items-center gap-2 text-sm text-gray-400">
                 <span className="h-1.5 w-1.5 rounded-full bg-green-500" />
@@ -153,7 +165,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-6 text-lg font-bold">Restons connectes</h4>
+            <h4 className="mb-6 text-lg font-bold">Restons connectés</h4>
             <p className="mb-4 text-sm text-gray-400">
               Recevez nos conseils pour digitaliser votre business.
             </p>
@@ -202,6 +214,15 @@ export default function Footer() {
                 <Mail size={16} className="text-blue-500" />
                 anoeddi84@gmail.com
               </a>
+              <a
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-sm text-gray-400 transition-colors hover:text-white"
+              >
+                <MessageCircle size={16} className="text-green-500" />
+                WhatsApp : {WHATSAPP_NUMBER}
+              </a>
               <div className="flex items-center gap-3 text-sm text-gray-400">
                 <MapPin size={16} className="text-blue-500" />
                 Disponible en Remote (Monde)
@@ -212,7 +233,7 @@ export default function Footer() {
 
         <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-center md:flex-row md:text-left">
           <p className="text-xs text-gray-500">
-            &copy; {currentYear} eddiano.dev - Tous droits reserves.
+            &copy; {currentYear} Niryva - Tous droits reserves.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">

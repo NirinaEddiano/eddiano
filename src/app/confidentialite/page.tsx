@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Politique de Confidentialité - Eddiano.dev",
-  description: "Protection des données personnelles sur Eddiano.dev",
+  title: "Politique de Confidentialité - Niryva",
+  description: "Protection des données personnelles sur Niryva",
 };
 
 export default function ConfidentialitePage() {

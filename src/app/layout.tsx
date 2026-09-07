@@ -6,10 +6,11 @@ import { LangProvider } from "@/lib/i18n/LanguageContext";
 import GoogleTranslateInit from "@/components/layout/GoogleTranslateInit";
 
 export const metadata: Metadata = {
-  title: "Eddiano.dev - Développeur Web Madagascar",
-  description: "Développeur web professionnel à Madagascar - Création de sites internet sur mesure",
+  title: "Niryva - Agence Web | WordPress, Shopify & Code Sur-Mesure",
+  description: "Niryva, agence web spécialisée en création de sites internet. WordPress, Shopify et développement sur mesure pour entreprises francophones.",
   icons: {
-    icon: "/Screenshot 2026-04-10 201109.png",
+    icon: "/favicon.svg",
+    shortcut: "/favicon.ico",
   },
 };
 

@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Conditions Générales de Vente - Eddiano.dev",
-  description: "CGV de Eddiano.dev - Conditions de vente et prestations",
+  title: "Conditions Générales de Vente - Niryva",
+  description: "CGV de Niryva - Conditions de vente et prestations",
 };
 
 export default function CgvPage() {
@@ -18,7 +18,7 @@ export default function CgvPage() {
             <h2 className="text-xl font-bold text-gray-900 mb-4">1. Champ d'application</h2>
             <p className="mb-2">
               Les présentes Conditions Générales de Vente (CGV) s'appliquent 
-              à toutes les prestations de services proposées par Eddiano.dev.
+              à toutes les prestations de services proposées par Niryva.
             </p>
             <p>
               Toute commande de prestation implique l'acceptation sans réserve 
@@ -29,7 +29,7 @@ export default function CgvPage() {
           <section>
             <h2 className="text-xl font-bold text-gray-900 mb-4">2. Prestations proposées</h2>
             <p className="mb-2">
-              Eddiano.dev propose les services suivants :
+              Niryva propose les services suivants :
             </p>
             <ul className="list-disc pl-5 space-y-1">
               <li>Développement de sites web sur mesure (Next.js, React)</li>
@@ -130,15 +130,15 @@ export default function CgvPage() {
             <p className="mb-2">
               La propriété intellectuelle des livrables est transférée au client 
               après paiement intégral du projet. Jusqu'au paiement complet, 
-              Eddiano.dev conserve la propriété de l'ensemble des travaux réalisés.
+              Niryva conserve la propriété de l'ensemble des travaux réalisés.
             </p>
           </section>
 
           <section>
             <h2 className="text-xl font-bold text-gray-900 mb-4">10. Responsabilité</h2>
             <p>
-              La responsabilité de Eddiano.dev est limitée au montant total de la prestation. 
-              Je ne saurais être tenu responsable des dommages indirects, 
+              La responsabilité de Niryva est limitée au montant total de la prestation. 
+              L'agence ne saurait être tenu responsable des dommages indirects, 
               pertes d'exploitation ou manque à gagner.
             </p>
           </section>

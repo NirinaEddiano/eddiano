@@ -16,7 +16,7 @@ export default function RealisationsPage() {
             animate={{ scale: 1 }}
             transition={{ duration: 1.5 }}
             src="/assets/portfolio/portfolio-hero.jpg"
-            alt="Hero realisations"
+            alt="Hero réalisations"
             className="h-full w-full object-cover opacity-50"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent" />
@@ -34,7 +34,7 @@ export default function RealisationsPage() {
             <h1 className="mb-6 text-4xl font-black leading-none tracking-tighter text-white sm:text-5xl md:mb-8 md:text-8xl">
               Toutes les <br />
               <span className="bg-gradient-to-r from-blue-400 to-cyan-200 bg-clip-text text-transparent">
-                realisations.
+                réalisations.
               </span>
             </h1>
             <p className="mx-auto max-w-2xl text-base font-light leading-relaxed text-gray-300 md:text-xl">
@@ -71,12 +71,12 @@ export default function RealisationsPage() {
                     />
                   </div>
 
-                  <div className="absolute bottom-3 right-3 z-20 w-[28%] overflow-hidden rounded-[1.25rem] border-4 border-white bg-black shadow-2xl">
-                    <div className="absolute left-1/2 top-0 z-10 h-3 w-1/2 -translate-x-1/2 rounded-b-md bg-black" />
+                  <div className="absolute bottom-3 right-3 z-20 h-28 w-[17%] max-w-[72px] overflow-hidden rounded-[1rem] border-[3px] border-white bg-gray-900 shadow-2xl sm:h-32">
+                    <div className="absolute left-1/2 top-0 z-10 h-2.5 w-1/2 -translate-x-1/2 rounded-b-md bg-black" />
                     <img
                       src={project.mobileImg}
                       alt={`${project.title} mobile`}
-                      className="h-auto w-full object-cover"
+                      className="h-full w-full object-cover object-top"
                     />
                   </div>
 

@@ -2,6 +2,7 @@ import Hero from "@/components/home/Hero";
 import TechCarousel from "@/components/home/TechCarousel";
 import ProjectShowcase from "@/components/home/ProjectShowcase";
 import ServicesSection from "@/components/home/ServicesSection";
+import PricingSection from "@/components/home/PricingSection";
 import PortfolioSection from "@/components/home/PortfolioSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import FaqSection from "@/components/home/FaqSection";
@@ -14,6 +15,7 @@ export default function Home() {
       <TechCarousel />
       <ProjectShowcase />
       <ServicesSection />
+      <PricingSection />
       <PortfolioSection />
       <TestimonialsSection />
       <FaqSection />

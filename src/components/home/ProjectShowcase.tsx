@@ -90,18 +90,18 @@ export default function ProjectShowcase() {
 
           <div className="space-y-4 text-base font-light leading-relaxed text-gray-600 md:text-lg">
             <p>
-              Nous construisons des experiences digitales sur mesure, en
+              Nous construisons des expériences digitales sur mesure, en
               choisissant la meilleure pile entre code sur mesure, WordPress et
               Shopify selon le besoin du projet.
             </p>
             <p>
-              Cette section affiche maintenant de vraies paires desktop et
-              mobile, avec une logique identique a celle de tes captures.
+              Chaque projet est présenté en version desktop et mobile, pour
+              garantir une expérience parfaite sur tous les écrans.
             </p>
           </div>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4 lg:justify-start">
-            {["100% Responsive", "SEO optimise", "Admin simple", "Design unique"].map(
+            {["100% Responsive", "SEO optimisé", "Admin simple", "Design unique"].map(
               (tag) => (
                 <span
                   key={tag}

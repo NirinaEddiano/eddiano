@@ -155,7 +155,7 @@ export default function DetailProjet({
             >
               <img
                 src={project.mobileImages}
-                className="h-[380px] w-full rounded-[3rem] border border-gray-100 object-cover shadow-2xl sm:h-[500px]"
+                className="mx-auto max-h-[560px] w-full rounded-[3rem] border border-gray-100 bg-gray-100 object-contain object-top shadow-2xl"
                 alt={`${project.title} mobile`}
               />
             </motion.div>
@@ -171,7 +171,7 @@ export default function DetailProjet({
               <TrendingUp size={32} />
             </div>
             <h2 className="text-3xl font-black text-gray-900 md:text-5xl">
-              Resultats & impact
+              Résultats & impact
             </h2>
             <p className="text-xl font-light italic leading-relaxed text-gray-600">
               {project.impact}
@@ -193,11 +193,11 @@ export default function DetailProjet({
           <div className="mb-10 flex flex-col items-start justify-between gap-4 md:mb-12 md:flex-row md:items-end md:gap-6">
             <div>
               <h3 className="flex items-center gap-3 text-2xl font-bold text-gray-900 sm:text-3xl">
-                D autres realisations{" "}
+                D'autres réalisations{" "}
                 <ArrowRight size={24} className="text-blue-600" />
               </h3>
               <p className="mt-2 text-gray-500">
-                Explore les autres visuels deja prepares.
+                Découvrez d'autres projets signés par notre agence.
               </p>
             </div>
             <Link
@@ -242,7 +242,7 @@ export default function DetailProjet({
                       </p>
 
                       <div className="mt-6 flex translate-x-[-10px] items-center gap-2 text-sm font-bold text-gray-900 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100">
-                        Decouvrir le projet <ArrowRight size={16} />
+                        Découvrir le projet <ArrowRight size={16} />
                       </div>
                     </div>
                   </Link>

@@ -9,7 +9,6 @@ import Link from "next/link";
 import { useState } from "react";
 
 import CtaSection from "@/components/home/CtaSection";
-import PricingSection from "@/components/home/PricingSection";
 import { portfolioProjects } from "@/lib/portfolio";
 
 export default function ServicesPage() {
@@ -207,8 +206,6 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
-
-      <PricingSection />
 
       <CtaSection />
     </main>

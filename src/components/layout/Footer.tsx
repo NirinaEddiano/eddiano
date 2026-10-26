@@ -125,14 +125,6 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/tarifs"
-                  className="text-sm text-gray-400 transition-colors hover:text-blue-400"
-                >
-                  Tarifs
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/contact"
                   className="text-sm text-gray-400 transition-colors hover:text-blue-400"
                 >
